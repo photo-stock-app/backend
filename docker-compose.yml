@@ -59,7 +59,7 @@ services:
       dockerfile: .docker/bedrock/Dockerfile
     volumes:
       - bedrock-1:/app:rw
-      #- ./_docker/bedrock/mu-plugins/awk-acfe:/app/web/app/mu-plugins/awk-acfe:rw
+      - ./web/app/mu-plugins/awk-acfe:/app/web/app/mu-plugins/awk-acfe:rw
     depends_on:
       database:
         condition: service_healthy
