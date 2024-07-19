@@ -1,0 +1,17 @@
+services:
+  nginx:
+    image: alonecat/wp-stock-nginx:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      NGINX_ENVSUBST_TEMPLATE_SUFFIX: .conf
+      WP_PORT: ${WP_PORT}
+    ports:
+      - ${WP_PORT}:${WP_PORT}
+    develop:
+      watch:
+        - action: sync+restart
+          path: ./
+          target: /etc/nginx

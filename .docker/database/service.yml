@@ -1,0 +1,14 @@
+services:
+  database:
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_PASSWORD}
+      MARIADB_DATABASE: ${DB_NAME}
+      MARIADB_USER: ${DB_USER}
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+    healthcheck:
+      test: mariadb --user root --password=${DB_PASSWORD}
+      interval: 5s
+      timeout: 5s
+      retries: 50

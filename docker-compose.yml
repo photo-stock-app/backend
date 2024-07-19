@@ -1,0 +1,79 @@
+name: base
+
+services:
+  composer:
+    image: composer
+    volumes:
+      - bedrock-1:/app
+    command: composer install
+    depends_on:
+      bedrock:
+        condition: service_started
+
+  wp-cli:
+    extends:
+      service: wp-cli
+      file: .docker/wp-cli/service.yml
+    depends_on:
+      composer:
+        condition: service_completed_successfully
+      database:
+        condition: service_healthy
+        restart: true
+    volumes:
+      - bedrock-1:/var/www/html
+    networks:
+      app:
+  database:
+    extends:
+      service: database
+      file: .docker/database/service.yml
+    volumes:
+      - database:/var/lib/mysql
+    networks:
+      app:
+  nginx:
+    extends:
+      service: nginx
+      file: .docker/nginx/service.yml
+    depends_on:
+      #      bedrock:
+      #        condition: service_started
+      #      database:
+      #        condition: service_healthy
+      composer:
+        condition: service_completed_successfully
+      #wp-cli:
+       # condition: service_completed_successfully
+    volumes:
+      - bedrock-1:/app:ro
+    networks:
+      app:
+  bedrock:
+    extends:
+      service: bedrock
+      file: .docker/bedrock/service.yml
+    image: alonecat/wp-stock-bedrock:latest
+    build:
+      context: .
+      dockerfile: .docker/bedrock/Dockerfile
+    volumes:
+      - bedrock-1:/app:rw
+      #- ./_docker/bedrock/mu-plugins/awk-acfe:/app/web/app/mu-plugins/awk-acfe:rw
+    depends_on:
+      database:
+        condition: service_healthy
+        restart: true
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /app
+    networks:
+      app:
+volumes:
+  bedrock-1:
+  database:
+
+networks:
+  app:
