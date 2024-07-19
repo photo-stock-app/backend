@@ -1,0 +1,13 @@
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+/.idea/.gitignore
+/.idea/modules.xml
+/.idea/photo-stock-wp-1.iml
+/.idea/php.xml
+/.idea/vcs.xml
