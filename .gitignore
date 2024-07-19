@@ -1,13 +1,31 @@
-### Example user template template
-### Example user template
+# Application
+web/app/plugins/.gitkeep
+!web/app/plugins/.gitkeep
+web/app/themes/twentytwentyfour/
+web/app/upgrade
+web/app/uploads/*
+!web/app/uploads/.gitkeep
+web/app/cache/*
 
-# IntelliJ project files
+
+# WordPress
+web/wp
+web/.htaccess
+
+# Logs
+*.log
+
+# Dotenv
+.env
+.env.*
+!.env.example
+
+# Composer
+/vendor
+
+# WP-CLI
+wp-cli.local.yml
+
+
 .idea
-*.iml
-out
-gen
-/.idea/.gitignore
-/.idea/modules.xml
-/.idea/photo-stock-wp-1.iml
-/.idea/php.xml
-/.idea/vcs.xml
+.DS_Store
