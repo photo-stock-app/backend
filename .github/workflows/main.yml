@@ -27,14 +27,6 @@ jobs:
           echo "DB_NAME='wp'" >> .env
           echo "DB_USER='wp'" >> .env
           echo "DB_PASSWORD='1230'" >> .env
-          echo "AUTH_KEY='}UDyqg&*4XwVg|B}Pa;oMp\`sf_xPP]gt&WUM@-cUNW*Jeoys}A}>J[Mx.,K0-yAP'" >> .env
-          echo "SECURE_AUTH_KEY='*j?=H(2dA(ySJDt1O(K|vp}WNOE;R(,}Ls1ytT#!vaI4);Hr87}_QZx-$6Vu>_r9'" >> .env
-          echo "LOGGED_IN_KEY='V?2]leu=QQ:)7_j\$S/jQlh0yDQCV)_pH90,G:<ZRsx56ta&,<F\`33#mOB;Qs0Y2s'" >> .env
-          echo "NONCE_KEY='Te*Z&OyGVP{KzUPY_!A2}(ak9c9J\`7qCplkWHZjDURz:!%BSj4F^CK(Ea%bFVK<N'" >> .env
-          echo "AUTH_SALT='D,T-?suf?i}#x8ihMM&#ukGHC9k\$3fw-:AN0Ybo=Hw3@v;[9c8kAOJdSv^-A7xT\`'" >> .env
-          echo "SECURE_AUTH_SALT='TN\`O3]`N48/pi:[]1vQT;C/CFr9gE0G|:e(Y9m\`aV}1=}b\`C{]cg&;{yU4(O@y2D'" >> .env
-          echo "LOGGED_IN_SALT='>\$*0\`axaiaRXZU+&%(dp]+yNB8\$9T:5OANWDCVvFX]0G_3qTe\`D:yK&N+-xn56i#'" >> .env
-          echo "NONCE_SALT=',b4u6jiCb|y,FzX,_\)8zf6Oj7@Lm@;!moM*(m{,a9LwgEVaoh.t{B\`N0&)aLA?9Q'" >> .env
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
