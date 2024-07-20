@@ -1,0 +1,29 @@
+name: Deploy Photo-Stock-WP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+  steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Create .env file
+        run: |
+          echo "WP_TITLE='Photo stock app'" >> .env
+          echo "WP_USER=alonecat" >> .env
+          echo "WP_PASSWORD=1230" >> .env
+          echo "WP_EMAIL=htchtc052@gmail.com" >> .env
+          echo "WP_PORT=8080" >> .env
+          echo "WP_ENV='production'" >> .env
+          echo "WP_HOME=\"http://localhost:\${WP_PORT}\"" >> .env
+          echo "WP_SITEURL=\"\${WP_HOME}/wp\"" >> .env
+          echo "DB_HOST=database:3306" >> .env
+          echo "DB_NAME='wp'" >> .env
+          echo "DB_USER='wp'" >> .env
+          echo "DB_PASSWORD='1230'" >> .envv
