@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: self-hosted
 
-  steps:
+    steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -26,4 +26,4 @@ jobs:
           echo "DB_HOST=database:3306" >> .env
           echo "DB_NAME='wp'" >> .env
           echo "DB_USER='wp'" >> .env
-          echo "DB_PASSWORD='1230'" >> .envv
+          echo "DB_PASSWORD='1230'" >> .env
