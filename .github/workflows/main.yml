@@ -27,3 +27,5 @@ jobs:
           echo "DB_NAME='wp'" >> .env
           echo "DB_USER='wp'" >> .env
           echo "DB_PASSWORD='1230'" >> .env
+      - name: Build and run containers
+        run: docker-compose up -d
