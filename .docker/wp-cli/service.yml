@@ -12,7 +12,6 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       DB_PREFIX: ${DB_PREFIX}
     command: bash -c "wp core install --url=$WP_HOME \
-      --title=$WP_TITLE \
       --admin_user=$WP_USER \
       --admin_password=$WP_PASSWORD \
       --admin_email=$WP_EMAIL --allow-root
