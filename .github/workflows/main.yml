@@ -50,6 +50,6 @@ jobs:
         
       - name: logs wp
         run: |
-          docker-compose logs wp-cli
+          docker-compose logs -f wp-cli
           
           
