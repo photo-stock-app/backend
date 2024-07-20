@@ -1,4 +1,4 @@
-# Use the official PHP 8.4-FPM image with multi-platform support
+# Use the official PHP 8.2-FPM image with multi-platform support
 FROM php:8.2-fpm-alpine
 
 # Install necessary packages and dependencies
@@ -10,12 +10,15 @@ RUN apk add --no-cache \
 # Set the working directory
 WORKDIR /app
 
-# Copy application files
+# Copy application files and set ownership
+COPY --chown=www-data:www-data . .
 
-COPY . .
+# Ensure the www-data user owns the /app directory
+RUN chown -R www-data:www-data /app
 
 # Expose the port
 EXPOSE 9000
 
 # Start PHP-FPM
+USER www-data
 CMD ["php-fpm"]
