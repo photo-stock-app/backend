@@ -26,6 +26,14 @@ jobs:
           DB_USER: ${{ secrets.DB_USER }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
           DB_PREFIX: ${{ secrets.DB_PREFIX }}
+          AUTH_KEY: ${{ secrets.AUTH_KEY }}
+          SECURE_AUTH_KEY: ${{ secrets.SECURE_AUTH_KEY }}
+          LOGGED_IN_KEY: ${{ secrets.LOGGED_IN_KEY }}
+          NONCE_KEY: ${{ secrets.NONCE_KEY }}
+          AUTH_SALT: ${{ secrets.AUTH_SALT }}
+          SECURE_AUTH_SALT: ${{ secrets.SECURE_AUTH_SALT }}
+          LOGGED_IN_SALT: ${{ secrets.LOGGED_IN_SALT }}
+          NONCE_SALT: ${{ secrets.NONCE_SALT }}
         run: |
           touch .env
           echo "WP_TITLE=\"$WP_TITLE\"" >> .env
@@ -41,6 +49,14 @@ jobs:
           echo "DB_USER=\"$DB_USER\"" >> .env
           echo "DB_PASSWORD=\"$DB_PASSWORD\"" >> .env
           echo "DB_PREFIX=\"$DB_PREFIX\"" >> .env
+          echo "AUTH_KEY=\"$AUTH_KEY\"" >> .env
+          echo "SECURE_AUTH_KEY=\"$SECURE_AUTH_KEY\"" >> .env
+          echo "LOGGED_IN_KEY=\"$LOGGED_IN_KEY\"" >> .env
+          echo "NONCE_KEY=\"$NONCE_KEY\"" >> .env
+          echo "AUTH_SALT=\"$AUTH_SALT\"" >> .env
+          echo "SECURE_AUTH_SALT=\"$SECURE_AUTH_SALT\"" >> .env
+          echo "LOGGED_IN_SALT=\"$LOGGED_IN_SALT\"" >> .env
+          echo "NONCE_SALT=\"$NONCE_SALT\"" >> .env
 
       - name: Build and run Docker containers
         run: |
