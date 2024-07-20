@@ -14,5 +14,8 @@ clean-up:
 	docker volume prune -f
 	docker system prune -f
 
+build:
+	docker-compose --env-file ../.env.local -p build
+
 
 
