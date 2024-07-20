@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v3
       
       
-      x- name: Create .env file
+      - name: Create .env file
         env:
           WP_TITLE: ${{ secrets.WP_TITLE }}
           WP_USER: ${{ secrets.WP_USER }}
