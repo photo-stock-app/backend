@@ -12,6 +12,8 @@ web/app/cache/*
 web/wp
 web/.htaccess
 
+web/themes/twentytwentyfour
+
 # Logs
 *.log
 
