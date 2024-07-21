@@ -42,8 +42,8 @@ jobs:
           echo "WP_EMAIL=\"$WP_EMAIL\"" >> .env
           echo "WP_PORT=\"$WP_PORT\"" >> .env
           echo "WP_ENV=\"$WP_ENV\"" >> .env
-          echo "WP_HOME=\"$WP_HOME\"" >> .env
-          echo "WP_SITEURL=\"$WP_SITEURL\"" >> .env
+          echo "WP_HOME=http://62.109.4.63:8080" >> .env
+          echo "WP_SITEURL=http://62.109.4.63:8080/wp" >> .env
           echo "DB_HOST=\"$DB_HOST\"" >> .env
           echo "DB_NAME=\"$DB_NAME\"" >> .env
           echo "DB_USER=\"$DB_USER\"" >> .env
