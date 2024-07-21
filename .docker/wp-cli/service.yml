@@ -13,9 +13,9 @@ services:
       DB_PREFIX: ${DB_PREFIX}
     command: bash -c "wp core install --url=$WP_HOME \
       --title=\"$WP_TITLE\" \
-      --admin_user=$WP_USER \
-      --admin_password=$WP_PASSWORD \
-      --admin_email=$WP_EMAIL --allow-root
+      --admin_user=\"$WP_USER\" \
+      --admin_password=\"$WP_PASSWORD\" \
+      --admin_email=\"$WP_EMAIL\" --allow-root
       && wp language core install ru_RU --allow-root
       && wp language core activate ru_RU --allow-root
       && wp plugin install https://awkirin.ru/wp/plugins/acf-extended-pro.zip --allow-root
