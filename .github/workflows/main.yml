@@ -64,4 +64,8 @@ jobs:
           docker-compose down --rmi local --remove-orphans
           docker-compose up -d
           docker-compose logs wp-cli
+
+      - name: logs wp
+        run: |
+          docker-compose logs -f wp-cli
           
