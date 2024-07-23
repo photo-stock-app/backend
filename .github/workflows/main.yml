@@ -65,7 +65,7 @@ jobs:
           docker-compose up -d
           docker-compose logs wp-cli
 
-      - name: logs wp
+      - name: logs wp-cli
         run: |
           docker-compose logs -f wp-cli
           
