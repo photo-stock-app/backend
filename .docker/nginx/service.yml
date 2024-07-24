@@ -1,9 +1,5 @@
 services:
   nginx:
-    image: alonecat/wp-stock-nginx:latest
-    build:
-      context: .
-      dockerfile: Dockerfile
     restart: always
     environment:
       NGINX_ENVSUBST_TEMPLATE_SUFFIX: .conf

@@ -1,10 +1,10 @@
-name: base
+name: backend-base
 
 services:
   composer:
     image: composer
     volumes:
-      - bedrock-1:/app
+      - bedrock:/app
     command: composer install
     depends_on:
       bedrock:
@@ -21,7 +21,7 @@ services:
         condition: service_healthy
         restart: true
     volumes:
-      - bedrock-1:/var/www/html
+      - bedrock:/var/www/html
     networks:
       app:
   database:
@@ -36,6 +36,10 @@ services:
     extends:
       service: nginx
       file: .docker/nginx/service.yml
+    image: alonecat/photo-stock-nginx:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     depends_on:
       #      bedrock:
       #        condition: service_started
@@ -46,19 +50,19 @@ services:
       #wp-cli:
        # condition: service_completed_successfully
     volumes:
-      - bedrock-1:/app:ro
+      - bedrock:/app:ro
     networks:
       app:
   bedrock:
     extends:
       service: bedrock
       file: .docker/bedrock/service.yml
-    image: alonecat/wp-stock-bedrock:latest
+    image: alonecat/photo-stock-bedrock:latest
     build:
       context: .
       dockerfile: .docker/bedrock/Dockerfile
     volumes:
-      - bedrock-1:/app:rw
+      - bedrock:/app:rw
       - ./web/app/mu-plugins/awk-acfe:/app/web/app/mu-plugins/awk-acfe:rw
     depends_on:
       database:
@@ -72,7 +76,7 @@ services:
     networks:
       app:
 volumes:
-  bedrock-1:
+  bedrock:
   database:
 
 networks:
