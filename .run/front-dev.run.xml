@@ -1,0 +1,30 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="front-dev" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
+    <deployment type="docker-compose.yml">
+      <settings>
+        <option name="envFilePath" value="" />
+        <option name="envVars">
+          <list>
+            <DockerEnvVarImpl>
+              <option name="name" value="NODE_ENV" />
+              <option name="value" value="development" />
+            </DockerEnvVarImpl>
+            <DockerEnvVarImpl>
+              <option name="name" value="GRAPHQL_URL" />
+              <option name="value" value="http://persons-web-1.local/wp/graphql" />
+            </DockerEnvVarImpl>
+          </list>
+        </option>
+        <option name="removeImagesOnComposeDown" value="LOCAL" />
+        <option name="removeVolumesOnComposeDown" value="true" />
+        <option name="secondarySourceFiles">
+          <list>
+            <option value="../photo-stock-frontend/docker-compose.dev.yml" />
+          </list>
+        </option>
+        <option name="sourceFilePath" value="../photo-stock-frontend/docker-compose.common.yml" />
+      </settings>
+    </deployment>
+    <method v="2" />
+  </configuration>
+</component>
